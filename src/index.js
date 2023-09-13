@@ -39,11 +39,9 @@ const playCards = card => {
 
   const cardName = card.getAttribute('data-card-name');
   memoryGame.pickedCards.push(cardName);
-  setTimeout(() => {
-    if (memoryGame.pickedCards.length == 2) {
-      checkPair();
-    };
-  }, "1000");
+  if (memoryGame.pickedCards.length == 2) {
+    checkPair();
+  };
 };
 
 const checkPair = () => {
@@ -56,7 +54,7 @@ const checkPair = () => {
       emptyPickedCards();
   } else {
     updateScore();
-    setTimeout(turnPickedCard(), "1000");
+    setTimeout(() => { turnPickedCard();}, "1000");
   }
 }
 
